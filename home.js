@@ -1,30 +1,50 @@
-// handle profile icon click
-const profileIcon = document.getElementById("profile-icon");
-profileIcon.addEventListener("click", () => {
-  // show/hide profile dropdown menu
-  const profileMenu = document.getElementById("profile-menu");
-  profileMenu.classList.toggle("hidden");
-});
+  
 
-// handle search button click
-const searchButton = document.getElementById("search-button");
-searchButton.addEventListener("click", () => {
-  // get search query from input field
-  const searchInput = document.getElementById("search-input");
-  const searchQuery = searchInput.value.trim();
-
-  // perform search using searchQuery...
-  console.log(`Performing search for "${searchQuery}"...`);
-});
-
-// handle image upload
-const imageInput = document.getElementById("image-input");
-imageInput.addEventListener("change", () => {
-  // get selected image file
-  const imageFile = imageInput.files[0];
-
-  // create image preview
-  const imagePreview = document.getElementById("image-preview");
-  const imagePreviewUrl = URL.createObjectURL(imageFile);
-  imagePreview.style.backgroundImage = `url(${imagePreviewUrl})`;
-});
+  function redirectToSearch(event) {
+    event.preventDefault(); // prevent the default form submission behavior
+    window.location.href = "search.html";
+  }
+  
+  // Function to handle image upload
+  function uploadImage() {
+    // Get the file input element
+    var fileInput = document.getElementById("myFile");
+    
+    // Get the first file selected by the user
+    var file = fileInput.files[0];
+    
+    // Create a new FormData object
+    var formData = new FormData();
+    
+    // Add the file to the FormData object
+    formData.append("file", file);
+    
+    // Send the FormData object to the server using AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/upload-image");
+    xhr.send(formData);
+    
+    // Handle the server's response
+    xhr.onload = function() {
+      if (xhr.status == 200) {
+        // Image uploaded successfully
+        console.log(xhr.responseText);
+      } else {
+        // Error uploading image
+        console.log("Error uploading image");
+      }
+    };
+  }
+  
+  // Event listeners for search and upload buttons
+  document.getElementById("search-button").addEventListener("click", redirectToSearch);
+  document.getElementById("upload-button").addEventListener("click", uploadImage);
+  document.getElementById('upload-btn').addEventListener('click', function() {
+    var fileInput = document.getElementById('upload-file');
+    var file = fileInput.files[0];
+    var formData = new FormData();
+    formData.append('file', file);
+    
+   
+  });
+  

@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Home Page</title>
-	<link rel="stylesheet" href="home.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-			</ul>
-			<div class="profile">
-				<img src="https://via.placeholder.com/50x50" alt="Profile Icon">
-			</div>
-		</nav>
-	</header>
-	<main>
-		<!-- HTML code for the search and upload images with a map -->
-		<!-- HTML code for the search and upload images with a map -->
-<div class="image-map">
-    <img src="SEARCH.jpg" alt="Search Image" usemap="#search-map<input type="file" id="upload-file" accept="image/*">
-    >
-    <img src="UPLOAD-IMG.jpg" alt="Upload Image" usemap="#upload-map">
-    <map name="search-map">
-        <area shape="rect" coords="0,0,150,300" alt="Search" onclick="window.location.href='search.html';">
-    </map>
-    <map name="upload-map">
-        <area shape="rect" coords="150,0,300,300" alt="Upload" href="upload.html">
-    </map>
-</div>
+    <header>
+        <div class="header-container">
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </nav>
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Profile">
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- HTML code for the search and upload images with a map -->
+        <div class="image-map">
+            <img src="SEARCH.jpg" alt="Search Image" usemap="#search-map">
+            <img src="UPLOAD-IMG.jpg" alt="Upload Image" usemap="#upload-map">
+            <map name="search-map">
+                <area shape="rect" coords="0,0,150,300" alt="Search" onclick="window.location.href='search.html';">
+            </map>
+            <map name="upload-map">
+                <area shape="rect" coords="150,0,300,300" alt="Upload" onclick="document.getElementById('upload-file').click();">
+            </map>
+        </div>
 
-		
-		<div class="search-container">
-			<input type="text" id="search" placeholder="Search">
-			<button id="search-btn" type="submit">Search</button>
-		</div>
-		<div class="upload-container">
-			<label for="upload-file" class="upload-label">Upload Image</label>
-			<input type="file" id="upload-file" accept="image/*">
-			<button id="upload-btn">Upload</button>
-		</div>
-	</main>
-	<script src="script.js"></script>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search">
+            <button id="search-btn" type="submit">Search</button>
+        </div>
+        <div class="upload-container">
+            <label for="upload-file" class="upload-label">Upload Image</label>
+            <input type="file" id="upload-file" accept="image/*">
+            <button id="upload-btn">Upload</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

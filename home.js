@@ -47,4 +47,17 @@
     
    
   });
+  function uploadFile() {
+    const fileInput = document.getElementById("upload-file");
+    const file = fileInput.files[0];
+    if (file) {
+      const formData = new FormData();
+      formData.append("file", file);
+      // Call the API to upload the file
+      // ...
+      console.log("File uploaded successfully!");
+    } else {
+      console.log("No file selected!");
+    }
+  }
   
